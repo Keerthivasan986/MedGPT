@@ -22,6 +22,41 @@ function buildInventory(pharmacies, medicines) {
   return rows;
 }
 
+// Setup generic/substitute relationships
+async function setupGenerics(medicines) {
+  // Paracetamol (Dolo 650) can be substituted with other paracetamol brands
+  const paracetamol = medicines.find(m => m.name === 'Paracetamol');
+  // Cetirizine has generic alternatives
+  const cetirizine = medicines.find(m => m.name === 'Cetirizine');
+  
+  if (paracetamol) {
+    // Create a generic version
+    const genericParacetamol = new Medicine({
+      name: 'Paracetamol',
+      brand: 'Crocin 650',
+      composition: 'Paracetamol 650mg',
+      form: 'tablet',
+      strength: '650mg',
+      generics: []
+    });
+    const saved = await genericParacetamol.save();
+    await Medicine.updateOne({ _id: paracetamol._id }, { generics: [saved._id] });
+  }
+
+  if (cetirizine) {
+    const genericCetirizine = new Medicine({
+      name: 'Cetirizine',
+      brand: 'Histacet',
+      composition: 'Cetirizine 10mg',
+      form: 'tablet',
+      strength: '10mg',
+      generics: []
+    });
+    const saved = await genericCetirizine.save();
+    await Medicine.updateOne({ _id: cetirizine._id }, { generics: [saved._id] });
+  }
+}
+
 export async function clearDatabase() {
   await Promise.all([
     User.deleteMany({}),
@@ -37,6 +72,10 @@ export async function seedDatabase() {
 
   const pharmacies = await Pharmacy.insertMany(pharmacyData);
   const medicines = await Medicine.insertMany(medicineData);
+  
+  // Setup generic relationships
+  await setupGenerics(medicines);
+  
   const inventory = await Inventory.insertMany(buildInventory(pharmacies, medicines));
 
   for (const { password, pharmacyLicense, ...profile } of demoUsers) {

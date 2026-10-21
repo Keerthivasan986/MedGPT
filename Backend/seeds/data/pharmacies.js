@@ -6,6 +6,7 @@ export const pharmacies = [
     city: 'Chennai',
     phone: '+91 44 2434 1122',
     licenseNumber: 'TN-CHN-0001',
+    openingHours: '9:00 AM - 10:00 PM',
     location: { type: 'Point', coordinates: [80.2337, 13.0418] }
   },
   {
@@ -14,6 +15,7 @@ export const pharmacies = [
     city: 'Chennai',
     phone: '+91 44 2626 7788',
     licenseNumber: 'TN-CHN-0002',
+    openingHours: '8:00 AM - 9:00 PM',
     location: { type: 'Point', coordinates: [80.2101, 13.085] }
   },
   {
@@ -22,6 +24,7 @@ export const pharmacies = [
     city: 'Chennai',
     phone: '+91 44 2498 5566',
     licenseNumber: 'TN-CHN-0003',
+    openingHours: '10:00 AM - 8:00 PM',
     location: { type: 'Point', coordinates: [80.268, 13.0339] }
   },
   {
@@ -30,6 +33,7 @@ export const pharmacies = [
     city: 'Chennai',
     phone: '+91 44 2230 4411',
     licenseNumber: 'TN-CHN-0004',
+    openingHours: '9:00 AM - 10:00 PM',
     location: { type: 'Point', coordinates: [80.221, 13.0067] }
   }
 ];

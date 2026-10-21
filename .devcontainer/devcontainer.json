@@ -1,0 +1,16 @@
+{
+  "name": "MedGPT",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "postCreateCommand": "npm ci --prefix Backend && npm ci --prefix Frontend",
+  "forwardPorts": [4000, 5173],
+  "portsAttributes": {
+    "4000": {
+      "label": "MedGPT API",
+      "onAutoForward": "notify"
+    },
+    "5173": {
+      "label": "MedGPT frontend",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}

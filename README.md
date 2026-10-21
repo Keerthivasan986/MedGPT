@@ -10,6 +10,13 @@ Real-time pharmacy medicine stock aggregator (MERN).
 
 - **Live search** — medicine / brand / composition search across nearby pharmacies, ranked by distance.
 - **Geo aware** — MongoDB `2dsphere` + `$nearSphere` with a configurable radius; Haversine distance shown per result.
+- **Smart sorting** — sort results by distance, price, or stock availability.
+- **Pharmacy status** — real-time open/closed status with "closes in X mins" warning badge.
+- **Alerts & warnings** — low stock, near-expiry, and closing time warnings to guide purchasing decisions.
+- **Generic alternatives** — find cheaper generic substitutes with the same active composition.
+- **Freshness indicator** — "updated X mins ago" shows how current the stock data is.
+- **Enhanced reservations** — improved modal dialog with quantity selector, pickup code countdown (4-hour validity).
+- **Pharmacy directions** — quick-access phone call and Google Maps directions for each pharmacy.
 - **Reservations** — patients reserve units and get a pickup code valid 4 hours; reserved units are held, never oversold.
 - **Pharmacist dashboard** — add/update stock lines, quick ±1 adjust, see on-hand vs reserved vs available.
 - **Real time** — Socket.IO `stock:updated` pushes every stock change to open search pages instantly.

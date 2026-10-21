@@ -6,5 +6,7 @@ import { searchRules } from '../validators/search.validator.js';
 const router = Router();
 
 router.get('/', validate(searchRules), searchController.search);
+router.get('/substitutes/:medicineId', searchController.getSubstitutes);
+router.get('/cheapest/:medicineId/:pharmacyId', searchController.getCheapestAlternative);
 
 export default router;

@@ -9,7 +9,9 @@ const medicineSchema = new mongoose.Schema(
     composition: { type: String, trim: true },
     form: { type: String, enum: MEDICINE_FORMS, default: 'tablet' },
     strength: { type: String, trim: true },
-    prescriptionRequired: { type: Boolean, default: false }
+    prescriptionRequired: { type: Boolean, default: false },
+    // Generic/substitute medicines with same composition
+    generics: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Medicine' }]
   },
   { timestamps: true }
 );

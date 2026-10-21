@@ -8,11 +8,11 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link className="brand" to="/">
-        <div>
+        <div className="brand-main">
           Med<span>GPT</span>
           <small>Get Pills Timely</small>
         </div>
-        <div className="brand-subtitle">Enhanced with AI(Availability Intimation)</div>
+        <small className="tagline">Enhanced with AI (Availability Intimation)</small>
       </Link>
       <div className="nav-links">
         <Link to="/">Search</Link>

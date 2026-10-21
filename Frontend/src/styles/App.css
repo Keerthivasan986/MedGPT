@@ -15,10 +15,12 @@
   color: var(--ink);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: flex-start;
+  gap: 2px;
+  text-decoration: none;
 }
 
-.brand > div:first-child {
+.brand-main {
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -34,20 +36,21 @@
   color: var(--muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.brand-subtitle {
-  font-size: 0.65rem;
+.brand .tagline {
+  font-size: 0.6rem;
   font-weight: 600;
   color: var(--accent);
-  letter-spacing: 0.03em;
-  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  text-transform: none;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -251,29 +254,234 @@
   font-size: 0.85rem;
 }
 
-.location-link {
+/* New Styles for Enhanced Features */
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.alert {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.badge.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.pharmacy-info {
+  margin: 12px 0;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.pharmacy-info strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.pharmacy-info small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.pharmacy-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.pharmacy-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pharmacy-actions a:hover {
+  color: var(--accent-dark);
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 24px;
+  padding: 12px;
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.sort-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.sort-controls select {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+
+.sort-controls button {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-content {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  margin: 0 0 16px;
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.modal-content p {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.modal-content small {
+  display: block;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin: 16px 0;
+}
+
+.form-group label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.form-group input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.modal-actions button.secondary {
+  background: #f1f5f9;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.modal-actions button.secondary:hover {
+  background: #e2e8f0;
+}
+
+/* Link Button */
+.link-button {
   background: none;
   border: none;
   color: var(--accent);
   cursor: pointer;
-  text-decoration: none;
+  font-size: 0.9rem;
   padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  display: inline;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.location-link:hover {
-  text-decoration: underline;
+.link-button:hover {
   color: var(--accent-dark);
+  text-decoration: underline;
 }
 
-.open {
-  color: #16a34a;
-  font-weight: 600;
+.link-button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  text-decoration: none;
 }
 
-.closed {
-  color: var(--danger);
-  font-weight: 600;
+/* Alternatives Section */
+.alternatives-section {
+  font-size: 0.88rem;
+  color: var(--muted);
+  background: #f8fafc;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Pricing Section */
+.pricing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
