@@ -70,6 +70,21 @@ npm run dev               # http://localhost:5173
 
 Or run both with Docker: `docker compose up --build`.
 
+## Deploy on Render
+
+The repository includes a Render Blueprint (`render.yaml`) for the API and static frontend. To
+deploy, sign in to Render with GitHub, create a Blueprint from
+`Keerthivasan986/MedGPT`, and provide `MONGO_URI` when prompted. Use the Atlas connection string
+for the `medgpt` database; keep it private. The Blueprint generates `JWT_SECRET` and configures
+the frontend/API URLs and SPA routing automatically. Atlas Network Access must allow connections
+from Render; for a demo, `0.0.0.0/0` works, while production should use restricted network access.
+
+After both services are healthy, open the `medgpt-web` URL and sign in with either demo account
+below. The seeded database already contains these users. If deploying to a new, empty database,
+seed it once from the API service shell with `npm run seed`; this clears existing collections, so
+never run it against a database containing data you need to keep. Render redeploys automatically
+when changes are pushed to the connected GitHub branch.
+
 ## Demo accounts
 
 | Role | Email | Password |
