@@ -50,7 +50,7 @@ export default function LoginPage() {
       <p className="muted">
         New here? <Link to="/register">Create an account</Link>
       </p>
-      <p className="muted">Demo: patient@medgpt.dev / pharmacist@medgpt.dev — password123</p>
+      
     </div>
   );
 }
